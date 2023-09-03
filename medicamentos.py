@@ -32,6 +32,7 @@ def validarSignos(presure,temperature,hipo,frecuency ):
     mensaje4 = "Tiene indicios de bradipnea " if frecuency < 12 else mensaje4
     mensaje4 = "Tiene indicios de taquipnea " if frecuency > 20 else mensaje4
     
-    return (mensaje1, mensaje2, mensaje3, mensaje4)
+    paciente2 = medicamentos(mensaje1, mensaje2, mensaje3, mensaje4)
+    listaSignos.append(paciente2)
 
 

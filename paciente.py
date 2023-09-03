@@ -1,4 +1,4 @@
-from medicamentos import validarSignos, listaSignos
+from medicamentos import validarSignos
 listadoPacientes = []
 
 class Paciente(object):
@@ -30,6 +30,7 @@ class Paciente(object):
                 "\nResultados examenes de laboratorio: {}"
                 "\nMedicamentos formulados: {}\n".format(self.documento, self.nombre, self.sexo, self.fecha_nacimiento, self.presion, self.temperatura, self.saturacion, self.frecuencia,self.notas, self.imagenes, self.examenes, self.medicamentos))
 
+
 def registroPaciente():
     print("\nRegistry de capacities\n")
     documento = int(input("digite el numero de documento del paciente: "))
@@ -42,7 +43,8 @@ def registroPaciente():
     temperatura = (float(input("ingrese la temperatura del paciente: ")))
     saturacion = float(input("ingrese la saturacion O2 del paciente: "))
     frecuencia = float(input("ingrese la frecuencia respiratoria del paciente: "))
-    
+    validarSignos(presion_arterial, temperatura, saturacion, frecuencia)
+
     print("\nRegistro de resultados\n")
     notas = str(input("ingrese las notas de evolucion del paciente: "))
     imagenes = str(input("ingrese el numero de imagenes diagnosticas del paciente: "))
@@ -50,10 +52,8 @@ def registroPaciente():
     medicamentos = str(input("ingrese los medicamentos formulados: "))
     
     paciente1 = Paciente(documento, nombre, sexo, fecha_nacimiento, presion_arterial, temperatura, saturacion, frecuencia, notas, imagenes, examenes, medicamentos)
-    paciente2 = validarSignos(presion_arterial, temperatura, saturacion, frecuencia)
-
     listadoPacientes.append(paciente1)
-    listaSignos.append(paciente2)
+
     print("\nEl paciente {} ha sido registrado con exito\n".format(nombre))
 
 def validarSexo(x):

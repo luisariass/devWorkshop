@@ -30,8 +30,12 @@ def buscarpaciente():
             paciente1.entregarDatos()
 
 def listasignos():
+    cont = 0
     documento = int(input("Ingrese el numero de cedula a buscar: "))
     for paciente1 in listadoPacientes:
         for paciente2 in listaSignos:
             if documento == paciente1.documento:
+                cont += 1
+                print("\n")
+                print("Paciente {}".format(cont))
                 paciente2.entregarSignos()
