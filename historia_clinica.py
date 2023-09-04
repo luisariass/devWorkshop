@@ -1,31 +1,31 @@
-from paciente import listPatient
+from patient import listPatient
 from medicamentos import listSigns
 
 
-class History_clinical:
-
-
+class ClinicalHistory:
     @staticmethod
     def patient_list():
         bed = 300
-        print("\nList patient\n")
+        print("\nList of Patients\n")
         if len(listPatient) == 0:
-            print("no patient mistakes\n")
+            print("No patient records\n")
+            return
         con = 0
         for patient1 in listPatient:
             con += 1
             print("Patient {}".format(con))
             patient1.deliverData()
         percentage = (con / bed) * 100
-        print("there are {} patients out of {} beds available, occupying a percentage of {} %: ".format(con, bed, percentage))
+        print("There are {} patients out of {} available beds, occupying a percentage of {}%.".format(con, bed,
+                                                                                                        percentage))
 
     @staticmethod
     def search_patient():
-        print("\nSearch patient\n")
+        print("\nSearch for a Patient\n")
         if len(listPatient) == 0:
-            print("no patient mistakes")
+            print("No patient records")
             return
-        document = int(input("enter the ID number to search: "))
+        document = int(input("Enter the ID number to search: "))
         for patient1 in listPatient:
             if document == patient1.id:
                 patient1.deliverData()
@@ -33,11 +33,12 @@ class History_clinical:
     @staticmethod
     def list_signs():
         cont = 0
-        print("\nlist Vital signs ")
+        print("\nList of Vital Signs")
         if len(listSigns) == 0:
-            print("no patient mistakes\n")
+            print("No vital signs records\n")
+            return
         for patient2 in listSigns:
             cont += 1
             print("\n")
             print("Patient {}".format(cont))
-            patient2.entregarSignos()
+            patient2.deliverSigns()
