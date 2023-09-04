@@ -1,11 +1,13 @@
-import paciente, historia_clinica
+import paciente
+from historia_clinica import History_clinical
  
 def salir():
-    print("Gracias por usar el programa ...")
+    print("Thanks for used the program ...")
     exit()
 
 
 def main():
+    historia = History_clinical()
     while True:
         print("\n")
         print("|********************************|")
@@ -22,13 +24,13 @@ def main():
 
         opcion = int(input("Opcion: "))
         if opcion == 1:
-            paciente.registroPaciente()
+            paciente.patient_registration()
         elif opcion == 2:
-            historia_clinica.listarpacientes()
+            historia.patient_list()
         elif opcion == 3:
-            historia_clinica.buscarpaciente()
+            historia.search_patient()
         elif opcion == 4: 
-            historia_clinica.listasignos()
+            historia.list_signs()
         elif opcion == 5:
             salir()
 
