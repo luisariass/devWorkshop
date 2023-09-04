@@ -1,38 +1,43 @@
-from paciente import listadoPacientes
-from medicamentos import listaSignos
-class Historia_clinica():
-    def __init__(self) -> None:
-        pass
+from paciente import listPatient
+from medicamentos import listSigns
 
 
-def listarpacientes():
-    cama = 300
-    print("\nListado de pacientes\n")
-    if len(listadoPacientes) == 0:
-        print("No hay pacientes registrados\n")
-    con = 0
-    for paciente1 in listadoPacientes:
-        con += 1
-        print("Paciente {}".format(con))
-        paciente1.entregarDatos()
-    porcentaje = (con / cama) * 100
-    print("hay {} pacientes de {} camas disponibles, ocupando un porcentaje de {} %: ".format(con, cama, porcentaje))
+class History_clinical:
 
 
-def buscarpaciente():
-    print("\nBuscar Paciente\n")
-    if len(listadoPacientes) == 0:
-        print("No hay pacientes registrados")
-        return
-    documento = int(input("Ingrese el numero de cedula a buscar: "))
-    for paciente1 in listadoPacientes:
-        if documento == paciente1.documento:
-            paciente1.entregarDatos()
+    @staticmethod
+    def patient_list():
+        bed = 300
+        print("\nList patient\n")
+        if len(listPatient) == 0:
+            print("no patient mistakes\n")
+        con = 0
+        for patient1 in listPatient:
+            con += 1
+            print("Patient {}".format(con))
+            patient1.deliverData()
+        percentage = (con / bed) * 100
+        print("there are {} patients out of {} beds available, occupying a percentage of {} %: ".format(con, bed, percentage))
 
-def listasignos():
-    cont = 0
-    for paciente2 in listaSignos:
-        cont += 1
-        print("\n")
-        print("Paciente {}".format(cont))
-        paciente2.entregarSignos()
+    @staticmethod
+    def search_patient():
+        print("\nSearch patient\n")
+        if len(listPatient) == 0:
+            print("no patient mistakes")
+            return
+        document = int(input("enter the ID number to search: "))
+        for patient1 in listPatient:
+            if document == patient1.id:
+                patient1.deliverData()
+
+    @staticmethod
+    def list_signs():
+        cont = 0
+        print("\nlist Vital signs ")
+        if len(listSigns) == 0:
+            print("no patient mistakes\n")
+        for patient2 in listSigns:
+            cont += 1
+            print("\n")
+            print("Patient {}".format(cont))
+            patient2.entregarSignos()
