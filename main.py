@@ -5,7 +5,6 @@ def salir():
     exit()
 
 
-
 def main():
     while True:
         print("\n")
@@ -18,7 +17,7 @@ def main():
         print("1.- Registrar Paciente")
         print("2.- Mostrar Pacientes")
         print("3.- Buscar Paciente")
-        print("4.- Mostrar indicios cronicos")
+        print("4.- Mostrar indicios cronicos de los pacientes")
         print("5.- Salir\n")
 
         opcion = int(input("Opcion: "))

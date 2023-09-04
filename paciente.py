@@ -32,20 +32,23 @@ class Paciente(object):
 
 
 def registroPaciente():
-    print("\nRegistry de capacities\n")
+    print("\nRegistry de capacities")
+    print("-" * 100)
     documento = int(input("digite el numero de documento del paciente: "))
     nombre = input("Ingress el name del patient: ")
     sexo = validarSexo(str(input("Ingress el sex del patient: ")))
     fecha_nacimiento = str(input("Ingress date of birth (DD/MM/AA): "))
 
-    print("\nRegistro Signos vitales\n")
+    print("\nRegistro Signos vitales")
+    print("-" * 100)
     presion_arterial = (float(input("Ingrese la presion arterial del paciente: ")))
     temperatura = (float(input("ingrese la temperatura del paciente: ")))
     saturacion = float(input("ingrese la saturacion O2 del paciente: "))
     frecuencia = float(input("ingrese la frecuencia respiratoria del paciente: "))
     validarSignos(presion_arterial, temperatura, saturacion, frecuencia)
 
-    print("\nRegistro de resultados\n")
+    print("\nRegistro de resultados")
+    print("-" * 100)
     notas = str(input("ingrese las notas de evolucion del paciente: "))
     imagenes = str(input("ingrese el numero de imagenes diagnosticas del paciente: "))
     examenes = str(input("ingrese los resultados de los examenes de laboratorio "))
@@ -61,4 +64,3 @@ def validarSexo(x):
         print("\nError, vuelva a ingresar el sexo\n")
         x = str(input("Ingress el sex del patient: "))
     return x
-
