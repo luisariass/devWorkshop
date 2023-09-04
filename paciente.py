@@ -1,66 +1,70 @@
-from medicamentos import validarSignos
-listadoPacientes = []
+from medicamentos import validateSigns
+from datetime import date
+
+listPatient = []
+
 
 class Paciente(object):
-    def __init__(self, _documento, _nombre, _sexo, _fecha_nacimiento, _presion, _temperatura, _saturacion, _frecuencia, _notas, _imagenes, _examenes, _medicamentos):
-        self.documento = _documento
-        self.nombre = _nombre
-        self.sexo = _sexo
-        self.fecha_nacimiento = _fecha_nacimiento
-        self.presion = _presion
-        self.temperatura = _temperatura
-        self.saturacion = _saturacion
-        self.frecuencia = _frecuencia
-        self.notas = _notas
-        self.imagenes = _imagenes
-        self.examenes = _examenes
-        self.medicamentos = _medicamentos
+    def __init__(self, _id, _name, _sex, _birthdate, _pressure, _temperature, _saturation, _frecuency, _notes, _image, _exam, _medicines):
+        self.id = _id
+        self.name = _name
+        self.sex = _sex
+        self.birthdate = _birthdate
+        self.pressure = _pressure
+        self.temperature = _temperature
+        self.saturation = _saturation
+        self.frecuency = _frecuency
+        self.notes = _notes
+        self.image = _image
+        self.exam = _exam
+        self.medicines = _medicines
 
-    def entregarDatos(self):
-            print("\nDocumento: {}"
-                "\nNombre: {} "
-                "\nSexo: {}"
-                "\nfecha nacimiento: {}"
-                "\nPresion: {}"
-                "\nTemperatura: {}"
-                "\nSaturacion: {}"
-                "\nFrecuencia: {}"
-                "\nNotas de evolucion: {}"
-                "\nImagenes diagnosticas: {}"
-                "\nResultados examenes de laboratorio: {}"
-                "\nMedicamentos formulados: {}\n".format(self.documento, self.nombre, self.sexo, self.fecha_nacimiento, self.presion, self.temperatura, self.saturacion, self.frecuencia,self.notas, self.imagenes, self.examenes, self.medicamentos))
+    def deliverData(self):
+        print(f"\nDocument: {self.id}"
+              f"\nName: {self.name} "
+              f"\nSex: {self.sex}"
+              f"\nBirthdate: {self.birthdate}"
+              f"\npressure: {self.pressure}"
+              f"\ntemperature: {self.pressure}"
+              f"\nsaturation: {self.saturation}"
+              f"\nfrecuency: {self.frecuency}"
+              f"\nNotas de evolucion: {self.notes}"
+              f"\nImagenes diagnosticas: {self.image}"
+              f"\nResultados examenes de laboratorio: {self.exam}"
+              f"\nmedicines formulados: {self.medicines}\n")
 
 
-def registroPaciente():
+def patient_registration():
     print("\nRegistry de capacities")
-    print("-" * 100)
-    documento = int(input("digite el numero de documento del paciente: "))
-    nombre = input("Ingress el name del patient: ")
-    sexo = validarSexo(str(input("Ingress el sex del patient: ")))
-    fecha_nacimiento = str(input("Ingress date of birth (DD/MM/AA): "))
+    print("-" * 80)
+    id = int(input("Enter the patient's document number "))
+    name = input("Ingress el name del patient: ")
+    sex = validate_gender(str(input("Ingress el sex del patient: ")))
+    birthdate = str(input("Ingress date of birth (DD/MM/AA): "))
 
-    print("\nRegistro Signos vitales")
-    print("-" * 100)
-    presion_arterial = (float(input("Ingrese la presion arterial del paciente: ")))
-    temperatura = (float(input("ingrese la temperatura del paciente: ")))
-    saturacion = float(input("ingrese la saturacion O2 del paciente: "))
-    frecuencia = float(input("ingrese la frecuencia respiratoria del paciente: "))
-    validarSignos(presion_arterial, temperatura, saturacion, frecuencia)
+    print("\nRegistry Vital signs")
+    print("-" * 80)
+    pressure_arterial = (float(input("Enter the patient's blood pressure: ")))
+    temperature = (float(input("enter the patient's temperature: ")))
+    saturation = float(input("enter the patient's O2 saturation: "))
+    frecuency = float(input("enter the patient's respiratory rate: "))
+    validateSigns(pressure_arterial, temperature, saturation, frecuency)
 
-    print("\nRegistro de resultados")
-    print("-" * 100)
-    notas = str(input("ingrese las notas de evolucion del paciente: "))
-    imagenes = str(input("ingrese el numero de imagenes diagnosticas del paciente: "))
-    examenes = str(input("ingrese los resultados de los examenes de laboratorio "))
-    medicamentos = str(input("ingrese los medicamentos formulados: "))
-    
-    paciente1 = Paciente(documento, nombre, sexo, fecha_nacimiento, presion_arterial, temperatura, saturacion, frecuencia, notas, imagenes, examenes, medicamentos)
-    listadoPacientes.append(paciente1)
+    print("\nRegistry of results")
+    print("-" * 80)
+    notes = str(input("enter the patient's progress notes: "))
+    image = str(input("enter the number of diagnostic images of the patient: "))
+    exam = str(input("enter the results of laboratory tests "))
+    medicines = str(input("enter the prescribed medicines: "))
 
-    print("\nEl paciente {} ha sido registrado con exito\n".format(nombre))
+    patient1 = Paciente(id, name, sex, birthdate, pressure_arterial, temperature, saturation,frecuency, notes, image, exam, medicines)
+    listPatient.append(patient1)
 
-def validarSexo(x):
-    while( x != 'f' and x != 'm'):
-        print("\nError, vuelva a ingresar el sexo\n")
+    print("\nPatient {} has been successfully registered\n".format(name))
+
+
+def validate_gender(x):
+    while x != 'f' and x != 'm':
+        print("\nError, re-enter gender\n")
         x = str(input("Ingress el sex del patient: "))
     return x
